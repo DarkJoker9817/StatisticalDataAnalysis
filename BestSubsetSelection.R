@@ -23,8 +23,8 @@ Y <- rename(Y, Dehydration=Y_Dehydration, Hyperthermia=Y_Hyperthermia,
 
 ### BEST SUBSET SELECTION DEHYDRATION ###
 library(leaps)
-subsel_fwd = regsubsets(Y$Dehydration~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='forward')
-subsel_bwd = regsubsets(Y$Dehydration~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='backward')
+subsel_fwd = regsubsets(Y_train$Dehydration~ X_train$Temperature + X_train$Humidity + X_train$Altitude + X_train$ClimaticConditions + X_train$RestTimeFromLastMatch + X_train$AvgPlayerValue + X_train$MatchRelevance + X_train$AvgGoalConcededLastMatches + X_train$SupportersImpact + X_train$OpposingSupportersImpact,data=X, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$Dehydration~ X_train$Temperature + X_train$Humidity + X_train$Altitude + X_train$ClimaticConditions + X_train$RestTimeFromLastMatch + X_train$AvgPlayerValue + X_train$MatchRelevance + X_train$AvgGoalConcededLastMatches + X_train$SupportersImpact + X_train$OpposingSupportersImpact,data=X, nvmax=10, method='backward')
 
 summary_fwd = summary(subsel_fwd)
 summary_bwd = summary(subsel_bwd)
