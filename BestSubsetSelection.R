@@ -1,35 +1,14 @@
-setwd("/Users/ugobarbato/Desktop/Università/Statistical\ Data\ Analysis/Project/")
-getwd()
-mydataset = read.csv("RegressionData_SDA_AH_group3.csv")
-mydataset = as.matrix(mydataset)
-mydataset = scale(mydataset)
-mydataset = as.data.frame(mydataset)
-X = mydataset[, 1:10]
-Y = mydataset[, 11:18]
-
-
-# Rename column names of X and Y datasets
-library(dplyr)
-X <- rename(X, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_Altitude,
-       ClimaticConditions=X_ClimaticConditions, RestTimeFromLastMatch=X_RestTimeFromLastMatch,
-       AvgPlayerValue=X_AvgPlayerValue, MatchRelevance=X_MatchRelevance, 
-       AvgGoalConcededLastMatches=X_AvgGoalConcededLastMatches, SupportersImpact=X_SupportersImpact,
-       OpposingSupportersImpact=X_OpposingSupportersImpact)
-
-Y <- rename(Y, Dehydration=Y_Dehydration, Hyperthermia=Y_Hyperthermia, 
-            AvgSpeed=Y_AvgSpeed, AvgTravelledDistance=Y_AvgTravelledDistance, 
-            PressingCapability=Y_PressingCapability, PhysicalEndurance=Y_PhysicalEndurance,
-            MentalConcentration=Y_MentalConcentration, EmotionalMotivation=Y_EmotionalMotivation)
-
-### BEST SUBSET SELECTION DEHYDRATION ###
 library(leaps)
-subsel_fwd = regsubsets(Y_train$Dehydration~ X_train$Temperature + X_train$Humidity + X_train$Altitude + X_train$ClimaticConditions + X_train$RestTimeFromLastMatch + X_train$AvgPlayerValue + X_train$MatchRelevance + X_train$AvgGoalConcededLastMatches + X_train$SupportersImpact + X_train$OpposingSupportersImpact,data=X, nvmax=10, method='forward')
-subsel_bwd = regsubsets(Y_train$Dehydration~ X_train$Temperature + X_train$Humidity + X_train$Altitude + X_train$ClimaticConditions + X_train$RestTimeFromLastMatch + X_train$AvgPlayerValue + X_train$MatchRelevance + X_train$AvgGoalConcededLastMatches + X_train$SupportersImpact + X_train$OpposingSupportersImpact,data=X, nvmax=10, method='backward')
+
+###----------- Best Subset Selection for Dehydration -----------###
+
+subsel_fwd = regsubsets(Y_train$Dehydration ~ .,data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$Dehydration ~ .,data=X_train, nvmax=10, method='backward')
 
 summary_fwd = summary(subsel_fwd)
 summary_bwd = summary(subsel_bwd)
 
-plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection Dehydration')
+plot(summary_fwd$rss, xlab='Models', ylab='RSS', col='red', main='Best Subset Selection Dehydration')
 points(summary_bwd$rss, col='blue')
 
 plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection Dehydration')
@@ -42,10 +21,10 @@ plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Sel
 points(summary_bwd$bic, col='blue')
 
 
-### BEST SUBSET SELECTION HYPERTHERMIA ###
+###----------- Best Subset Selection for Hyperthermia -----------###
 
-subsel_fwd = regsubsets(Y$Hyperthermia ~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='forward')
-subsel_bwd = regsubsets(Y$Hyperthermia ~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='backward')
+subsel_fwd = regsubsets(Y_train$Hyperthermia ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$Hyperthermia ~ ., data=X_train, nvmax=10, method='backward')
 
 summary_fwd = summary(subsel_fwd)
 summary_bwd = summary(subsel_bwd)
@@ -63,10 +42,115 @@ plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Sel
 points(summary_bwd$bic, col='blue')
 
 
-### BEST SUBSET SELECTION EMOTIONALMOTIVATION ###
+###----------- Best Subset Selection for AvgSpeed -----------###
 
-subsel_fwd = regsubsets(Y$EmotionalMotivation ~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='forward')
-subsel_bwd = regsubsets(Y$EmotionalMotivation ~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='backward')
+subsel_fwd = regsubsets(Y_train$AvgSpeed ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$AvgSpeed ~ ., data=X_train, nvmax=10, method='backward')
+
+summary_fwd = summary(subsel_fwd)
+summary_bwd = summary(subsel_bwd)
+
+plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection AvgSpeed')
+points(summary_bwd$rss, col='blue')
+
+plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection AvgSpeed')
+points(summary_bwd$adjr2, col='blue')
+
+plot(summary_fwd$cp, xlab='Model', ylab='Cp', col='red', main='Best Subset Selection AvgSpeed')
+points(summary_bwd$cp, col='blue')
+
+plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection AvgSpeed')
+points(summary_bwd$bic, col='blue')
+
+
+###----------- Best Subset Selection for AvgTravelledDistance -----------###
+
+subsel_fwd = regsubsets(Y_train$AvgTravelledDistance ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$AvgTravelledDistance ~ ., data=X_train, nvmax=10, method='backward')
+
+summary_fwd = summary(subsel_fwd)
+summary_bwd = summary(subsel_bwd)
+
+plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection AvgTravelledDistance')
+points(summary_bwd$rss, col='blue')
+
+plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection AvgTravelledDistance')
+points(summary_bwd$adjr2, col='blue')
+
+plot(summary_fwd$cp, xlab='Model', ylab='Cp', col='red', main='Best Subset Selection AvgTravelledDistance')
+points(summary_bwd$cp, col='blue')
+
+plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection AvgTravelledDistance')
+points(summary_bwd$bic, col='blue')
+
+
+###----------- Best Subset Selection for PressingCapability -----------###
+
+subsel_fwd = regsubsets(Y_train$PressingCapability ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$PressingCapability ~ ., data=X_train, nvmax=10, method='backward')
+
+summary_fwd = summary(subsel_fwd)
+summary_bwd = summary(subsel_bwd)
+
+plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection PressingCapability')
+points(summary_bwd$rss, col='blue')
+
+plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection PressingCapability')
+points(summary_bwd$adjr2, col='blue')
+
+plot(summary_fwd$cp, xlab='Model', ylab='Cp', col='red', main='Best Subset Selection PressingCapability')
+points(summary_bwd$cp, col='blue')
+
+plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection PressingCapability')
+points(summary_bwd$bic, col='blue')
+
+
+###----------- Best Subset Selection for PhysicalEndurance -----------###
+
+subsel_fwd = regsubsets(Y_train$PhysicalEndurance ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$PhysicalEndurance ~ ., data=X_train, nvmax=10, method='backward')
+
+summary_fwd = summary(subsel_fwd)
+summary_bwd = summary(subsel_bwd)
+
+plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection PhysicalEndurance')
+points(summary_bwd$rss, col='blue')
+
+plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection PhysicalEndurance')
+points(summary_bwd$adjr2, col='blue')
+
+plot(summary_fwd$cp, xlab='Model', ylab='Cp', col='red', main='Best Subset Selection PhysicalEndurance')
+points(summary_bwd$cp, col='blue')
+
+plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection PhysicalEndurance')
+points(summary_bwd$bic, col='blue')
+
+
+###----------- Best Subset Selection for MentalConcentration -----------###
+
+subsel_fwd = regsubsets(Y_train$MentalConcentration ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$MentalConcentration ~ ., data=X_train, nvmax=10, method='backward')
+
+summary_fwd = summary(subsel_fwd)
+summary_bwd = summary(subsel_bwd)
+
+plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection MentalConcentration')
+points(summary_bwd$rss, col='blue')
+
+plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection MentalConcentration')
+points(summary_bwd$adjr2, col='blue')
+
+plot(summary_fwd$cp, xlab='Model', ylab='Cp', col='red', main='Best Subset Selection MentalConcentration')
+points(summary_bwd$cp, col='blue')
+
+plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection MentalConcentration')
+points(summary_bwd$bic, col='blue')
+
+
+###----------- Best Subset Selection for EmotionalMotivation -----------###
+
+subsel_fwd = regsubsets(Y_train$EmotionalMotivation ~ ., data=X_train, nvmax=10, method='forward')
+subsel_bwd = regsubsets(Y_train$EmotionalMotivation ~ ., data=X_train, nvmax=10, method='backward')
 
 summary_fwd = summary(subsel_fwd)
 summary_bwd = summary(subsel_bwd)
@@ -83,24 +167,4 @@ points(summary_bwd$cp, col='blue')
 plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection EmotionalMotivation')
 points(summary_bwd$bic, col='blue')
 
-
-### BEST SUBSET SELECTION PHYSICALENDURANCE ###
-
-subsel_fwd = regsubsets(Y$PhysicalEndurance ~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='forward')
-subsel_bwd = regsubsets(Y$PhysicalEndurance ~ X$Temperature + X$Humidity + X$Altitude + X$ClimaticConditions + X$RestTimeFromLastMatch + X$AvgPlayerValue + X$MatchRelevance + X$AvgGoalConcededLastMatches + X$SupportersImpact + X$OpposingSupportersImpact,data=X, nvmax=10, method='backward')
-
-summary_fwd = summary(subsel_fwd)
-summary_bwd = summary(subsel_bwd)
-
-plot(summary_fwd$rss, xlab='Model', ylab='RSS', col='red', main='Best Subset Selection PhysicalEndurance')
-points(summary_bwd$rss, col='blue')
-
-plot(summary_fwd$adjr2, xlab='Model', ylab='AdjR2', col='red', main='Best Subset Selection PhysicalEndurance')
-points(summary_bwd$adjr2, col='blue')
-
-plot(summary_fwd$cp, xlab='Model', ylab='Cp', col='red', main='Best Subset Selection PhysicalEndurance')
-points(summary_bwd$cp, col='blue')
-
-plot(summary_fwd$bic, xlab='Model', ylab='BIC', col='red', main='Best Subset Selection PhysicalEndurance')
-points(summary_bwd$bic, col='blue')
 
