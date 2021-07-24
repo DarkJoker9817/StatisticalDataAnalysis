@@ -1,4 +1,4 @@
-setwd('./Desktop/Università/Statistical\ Data\ Analysis/Project')
+setwd('~/Desktop/Università/Statistical\ Data\ Analysis/Project/Datasets/')
 myds = read.csv('RegressionData_SDA_AH_group3.csv') 
 
 # Scale the dataset by subtracting the column means and dividing by the column 

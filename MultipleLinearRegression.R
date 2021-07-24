@@ -43,4 +43,3 @@ mse_7_test = mse_func(Y_test$MentalConcentration, predict(fit_7, X_test))
 mse_8_test = mse_func(Y_test$EmotionalMotivation, predict(fit_8, X_test))
 
 mse_tot_test = c(mse_1_test, mse_2_test, mse_3_test, mse_4_test, mse_5_test, mse_6_test, mse_7_test, mse_8_test)
-
