@@ -13,3 +13,5 @@ for (i in 1:26){
   print(models[i])
   print(cv.error[i])
 }
+
+print(cv.error)

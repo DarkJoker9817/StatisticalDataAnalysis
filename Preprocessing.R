@@ -5,6 +5,12 @@ myds = read.csv('C:/Users/vdevi/MyDesktop/unisa/magistrale/Primo anno/secondo se
 # standard deviation
 myds = scale(myds)
 myds = as.data.frame(myds)
+library("caret")
+preproc <- preProcess(myds, method=c("range"))
+
+myds <- predict(preproc,myds)
+
+summary(myds)
 
 # Separate the dataset in X (containing predictors) and Y (containing response)
 X = myds[, 1:10]
