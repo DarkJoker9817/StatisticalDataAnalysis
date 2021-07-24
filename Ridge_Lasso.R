@@ -1,72 +1,56 @@
-setwd("/Users/ugobarbato/Desktop/Università/Statistical\ Data\ Analysis/Project/")
-getwd()
-mydataset = read.csv("RegressionData_SDA_AH_group3.csv")
-mydataset = as.matrix(mydataset)
-mydataset = scale(mydataset)
+library(glmnet)
+library(matlib)
 
-mydataset = as.data.frame(mydataset)
+####---------------- Shrinkage ----------------####
 
-library(plyr)
-library(readr)
-library(ggplot2)
-library(GGally)
-library(dplyr)
-library(mlbench)
-library(caret)
-
-#preproc1 <- preProcess(mydataset, method=c("center", "scale"))
-
-#norm1 <- predict(preproc1, mydataset)
-
-#summary(norm1)
-
-preproc2 <- preProcess(mydataset, method=c("range"))
-
-norm2 <- predict(preproc2, mydataset)
-
-summary(norm2)
-mydataset = norm2
-
-X = mydataset[, 1:10]
-Y = mydataset[, 11:18]
-
-
-# Rename column names of X and Y datasets
-library(dplyr)
-X <- rename(X, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_Altitude,
-            ClimaticConditions=X_ClimaticConditions, RestTimeFromLastMatch=X_RestTimeFromLastMatch,
-            AvgPlayerValue=X_AvgPlayerValue, MatchRelevance=X_MatchRelevance, 
-            AvgGoalConcededLastMatches=X_AvgGoalConcededLastMatches, SupportersImpact=X_SupportersImpact,
-            OpposingSupportersImpact=X_OpposingSupportersImpact)
-
-Y <- rename(Y, Dehydration=Y_Dehydration, Hyperthermia=Y_Hyperthermia, 
-            AvgSpeed=Y_AvgSpeed, AvgTravelledDistance=Y_AvgTravelledDistance, 
-            PressingCapability=Y_PressingCapability, PhysicalEndurance=Y_PhysicalEndurance,
-            MentalConcentration=Y_MentalConcentration, EmotionalMotivation=Y_EmotionalMotivation)
-
-
-myLambda = 0.1
+mylambda=0.1
 lambda_grid=10^seq(-3, 10, length=50)
 
-splitpoint = 30
-X_train = X[1:splitpoint,]
-X_test = X[(splitpoint+1):40,]
-Y_train = Y[1:splitpoint,]
-Y_test = Y[(splitpoint+1):40,]
 
 mse_func=function(actual, predicted)
 {
   mean( (actual-predicted)^2 )
 }
 
-library(glmnet)
-### Ridge and Lasso fit and prediction for single lambda
-ridge_model=glmnet(X_train, Y_train$Y_Dehydration, alpha=0, lambda=myLambda) #Ridge->alpha=0, Lasso->alpha=1
-X_test = as.matrix(X_test)
-ridge_pred=predict(ridge_model, s=myLambda, newx=X_test)
+###---------- Y=Dehydration ----------###
+### Ridge fit and prediction for multiple lambda (lambda_grid)
+ridge_model_grid = glmnet(X_train, Y_train$Dehydration, alpha=0, lambda=lambda_grid)
+u=c()
+temp1=c()
+for(i in 1:length(lambda_grid)){
+  temp1 = predict(ridge_model_grid, s=lambda_grid[i], newx=as.matrix(X_test))
+  u[i] = c(mse_func(temp1, Y_test$Dehydration))
+}
+### Lasso fit and prediction for multiple lambda (lambda_grid)
+lasso_model_grid = glmnet(X_train, Y_train$Dehydration, alpha=1, lambda=lambda_grid)
+v=c()
+temp2=c()
+for(i in 1:length(lambda_grid)){
+  temp2 = predict(lasso_model_grid, s=lambda_grid[i], newx=as.matrix(X_test))
+  v[i] = c(mse_func(temp2, Y_test$Dehydration))
+}
 
-lasso_model=glmnet(X_train, Y_train$Y_Dehydration, alpha=1, lambda=myLambda) #Ridge->alpha=0, Lasso->alpha=1
-lasso_pred=predict(lasso_model, s=myLambda, newx=X_test)
+cv.out_ridge = cv.glmnet(as.matrix(X_train), Y_train$Dehydration, alpha=0, lambda=lambda_grid)
+cv.out_lasso = cv.glmnet(as.matrix(X_train), Y_train$Dehydration, alpha=1, lambda=lambda_grid)
+bestlambda_ridge = cv.out_ridge$lambda.min
+bestlambda_lasso = cv.out_lasso$lambda.min
+
+# Compare RMSE Ridge vs. Lasso vectors
+plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+points(v, col='blue', type='b')
+legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+
+# Value of lambda to minimize RMSE
+lambda_min_ridge = lambda_grid[which.min(u)]
+lambda_min_lasso = lambda_grid[which.min(v)]
+
+#Ridge fit for single lambda
+ridge_model=glmnet(X_train, Y_train$Dehydration, alpha=0, lambda=0.02120951)
+ridge_pred=predict(ridge_model, s=0.02120951, newx=as.matrix(X_test))
 mse_ridge=mse_func(ridge_pred, Y_test$Dehydration)
+
+#Lasso fit for single lambda
+lasso_model=glmnet(X_train, Y_train$Dehydration, alpha=1, lambda=0.07196857)
+lasso_pred=predict(lasso_model, s=0.07196857, newx=as.matrix(X_test))
 mse_lasso=mse_func(lasso_pred, Y_test$Dehydration)
 
