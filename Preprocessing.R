@@ -10,6 +10,7 @@ myds = as.data.frame(myds)
 X = myds[, 1:10]
 Y = myds[, 11:18]
 
+library(dplyr)
 myds <- rename(myds, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_Altitude,
                ClimaticConditions=X_ClimaticConditions, RestTimeFromLastMatch=X_RestTimeFromLastMatch,
                AvgPlayerValue=X_AvgPlayerValue, MatchRelevance=X_MatchRelevance, 
@@ -20,7 +21,7 @@ myds <- rename(myds, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_
                MentalConcentration=Y_MentalConcentration, EmotionalMotivation=Y_EmotionalMotivation)
 
 # Rename column names of X and Y datasets
-library(dplyr)
+
 X <- rename(X, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_Altitude,
             ClimaticConditions=X_ClimaticConditions, RestTimeFromLastMatch=X_RestTimeFromLastMatch,
             AvgPlayerValue=X_AvgPlayerValue, MatchRelevance=X_MatchRelevance, 

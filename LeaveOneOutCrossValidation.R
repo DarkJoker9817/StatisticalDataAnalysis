@@ -2,10 +2,14 @@
 library(ISLR)
 library(boot)
 
+print(length(models))
 cv.error=rep(0,7)
-for (i in 1:16){
+for (i in 1:26){
   glm.fit=glm(models[[i]],data=myds)
   cv.error[i]=cv.glm(myds,glm.fit)$delta[1]
 }
 
-print(cv.error)
+for (i in 1:26){
+  print(models[i])
+  print(cv.error[i])
+}
