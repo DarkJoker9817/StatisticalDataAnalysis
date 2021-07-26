@@ -1,4 +1,3 @@
-### ----- K FOLD CROSS VALIDATION -----###
 library(ISLR)
 library(boot)
 

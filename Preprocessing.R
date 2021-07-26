@@ -11,7 +11,7 @@ preproc <- preProcess(myds, method=c("range"))
 
 myds <- predict(preproc,myds)
 
-summary(myds2)
+summary(myds)
 
 # Separate the dataset in X (containing predictors) and Y (containing response)
 X = myds[, 1:10]
