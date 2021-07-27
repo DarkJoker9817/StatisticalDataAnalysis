@@ -1,48 +1,48 @@
 ###---------- Multiple Linear Regression ----------###
 
 ## Y=Dehydration, X={all the predictors}
-fit_1 = lm(linear.model1, data=X_train)
+fit_1 = lm(linear.model1, data=train)
 ## Y=Hyperthermia, X={all the predictors}
-fit_2 = lm(linear.model2, data=X_train)
+fit_2 = lm(linear.model2, data=train)
 ## Y=AvgSpeed, X={all the predictors}
-fit_3 = lm(linear.model3, data=X_train)
+fit_3 = lm(linear.model3, data=train)
 ## Y=AvgTravelledDistance, X={all the predictors}
-fit_4 = lm(linear.model4, data=X_train)
+fit_4 = lm(linear.model4, data=train)
 ## Y=PressingCapability, X={all the predictors}
-fit_5 = lm(linear.model5, data=X_train)
+fit_5 = lm(linear.model5, data=train)
 ## Y=PhysicalEndurance, X={all the predictors}
-fit_6 = lm(linear.model6, data=X_train)
+fit_6 = lm(linear.model6, data=train)
 ## Y=MentalConcentration, X={all the predictors}
-fit_7 = lm(linear.model7, data=X_train)
+fit_7 = lm(linear.model7, data=train)
 ## Y=EmotionalMotivation, X={all the predictors}
-fit_8 = lm(linear.model8, data=X_train)
+fit_8 = lm(linear.model8, data=train)
 
 
 ### Models derived from regsubsets
-fit_9 = lm(model.subset1_1, data=X_train)
-fit_10 = lm(model.subset1_2, data=X_train)
-fit_11 = lm(model.subset1_3, data=X_train)
+fit_9 = lm(model.subset1_1, data=train)
+fit_10 = lm(model.subset1_2, data=train)
+fit_11 = lm(model.subset1_3, data=train)
 
-fit_12 = lm(model.subset2_1, data=X_train)
-fit_13 = lm(model.subset2_2, data=X_train)
-fit_14 = lm(model.subset2_3, data=X_train)
+fit_12 = lm(model.subset2_1, data=train)
+fit_13 = lm(model.subset2_2, data=train)
+fit_14 = lm(model.subset2_3, data=train)
 
-fit_15 = lm(model.subset3_1, data=X_train)
-fit_16 = lm(model.subset3_2, data=X_train)
+fit_15 = lm(model.subset3_1, data=train)
+fit_16 = lm(model.subset3_2, data=train)
 
-fit_17 = lm(model.subset4_1, data=X_train)
+fit_17 = lm(model.subset4_1, data=train)
 
-fit_18 = lm(model.subset5_1, data=X_train)
-fit_19 = lm(model.subset5_2, data=X_train)
+fit_18 = lm(model.subset5_1, data=train)
+fit_19 = lm(model.subset5_2, data=train)
 
-fit_20 = lm(model.subset6_1, data=X_train)
+fit_20 = lm(model.subset6_1, data=train)
 
-fit_21 = lm(model.subset7_1, data=X_train)
-fit_22 = lm(model.subset7_2, data=X_train)
+fit_21 = lm(model.subset7_1, data=train)
+fit_22 = lm(model.subset7_2, data=train)
 
-fit_23 = lm(model.subset8_1, data=X_train)
-fit_24 = lm(model.subset8_2, data=X_train)
-fit_25 = lm(model.subset8_3, data=X_train)
+fit_23 = lm(model.subset8_1, data=train)
+fit_24 = lm(model.subset8_2, data=train)
+fit_25 = lm(model.subset8_3, data=train)
 
 # Simple function to calculate the MSE
 mse_func = function(actual, predicted) {
