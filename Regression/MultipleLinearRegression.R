@@ -19,9 +19,9 @@ fit_8 = lm(Y_train$EmotionalMotivation ~ ., data=X_train)
 
 
 ### Models derived from regsubsets
-fit_9 = lm(model.subset1, data=X_train)
-fit_10 = lm(model.subset12, data=X_train)
-fit_11 = lm(model.subset13, data=X_train)
+fit_9 = lm(model.subset1_1, data=train)
+fit_10 = lm(model.subset1_2, data=train)
+fit_11 = lm(model.subset1_3, data=train)
 
 fit_12 = lm(model.subset2, data=X_train)
 fit_13 = lm(model.subset21, data=X_train)
@@ -59,7 +59,7 @@ mse_6_train = mse_func(Y_train$PhysicalEndurance, predict(fit_6, X_train))
 mse_7_train = mse_func(Y_train$MentalConcentration, predict(fit_7, X_train))
 mse_8_train = mse_func(Y_train$EmotionalMotivation, predict(fit_8, X_train))
 
-mse_9_train = mse_func(Y_train$Dehydration, predict(fit_9, X_train))
+mse_9_train = mse_func(train$Dehydration, predict(fit_9, train))
 mse_10_train = mse_func(Y_train$Dehydration, predict(fit_10, X_train))
 mse_11_train = mse_func(Y_train$Dehydration, predict(fit_11, X_train))
 mse_12_train = mse_func(Y_train$Hyperthermia, predict(fit_12, X_train))
@@ -92,7 +92,7 @@ mse_6_test = mse_func(Y_test$PhysicalEndurance, predict(fit_6, X_test))
 mse_7_test = mse_func(Y_test$MentalConcentration, predict(fit_7, X_test))
 mse_8_test = mse_func(Y_test$EmotionalMotivation, predict(fit_8, X_test))
 
-mse_9_test = mse_func(Y_train$Dehydration, predict(fit_9, X_test))
+mse_9_test = mse_func(test$Dehydration, predict(fit_9, test))
 mse_10_test = mse_func(Y_train$Dehydration, predict(fit_10, X_test))
 mse_11_test = mse_func(Y_train$Dehydration, predict(fit_11, X_test))
 mse_12_test = mse_func(Y_train$Hyperthermia, predict(fit_12, X_test))

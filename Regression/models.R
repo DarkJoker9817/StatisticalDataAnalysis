@@ -4,9 +4,9 @@ linear.model1 = ((Y_train$Dehydration ~ Temperature+Humidity+Altitude+ClimaticCo
                    AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                    OpposingSupportersImpact))
 # BestSubsetSelection 
-model.subset1_1 = ((Y_train$Dehydration ~ Temperature+Humidity)) #BIC
-model.subset1_2 = ((Y_train$Dehydration ~ Temperature+Humidity+AvgPlayerValue)) #Cp
-model.subset1_3 = ((Y_train$Dehydration ~ Temperature+Humidity+AvgPlayerValue+Altitude)) #AdjR2
+model.subset1_1 = ((Dehydration ~ Temperature+Humidity)) #BIC
+model.subset1_2 = ((Dehydration ~ Temperature+Humidity+AvgPlayerValue)) #Cp
+model.subset1_3 = ((Dehydration ~ Temperature+Humidity+AvgPlayerValue+Altitude)) #AdjR2
 
 ###------------------- Y = Hyperthermia -------------------###
 # Linear model with all predictors
