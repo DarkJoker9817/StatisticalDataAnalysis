@@ -1,62 +1,62 @@
-linear.model1 = ((Dehydration ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model1 = ((Y_train$Dehydration ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                    AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                    OpposingSupportersImpact))
-model.subset1 = ((Dehydration ~ Temperature+Humidity))
-model.subset12 = ((Dehydration ~ Temperature+Humidity+AvgPlayerValue))
-model.subset13 = ((Dehydration ~ Temperature+Humidity+AvgPlayerValue+Altitude))
+model.subset1 = ((Y_train$Dehydration ~ Temperature+Humidity))
+model.subset12 = ((Y_train$Dehydration ~ Temperature+Humidity+AvgPlayerValue))
+model.subset13 = ((Y_train$Dehydration ~ Temperature+Humidity+AvgPlayerValue+Altitude))
 
-linear.model2 = ((Hyperthermia ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model2 = ((Y_train$Hyperthermia ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset2 = ((Hyperthermia ~ Temperature+Humidity))
-model.subset21 = ((Hyperthermia ~ Temperature+Humidity+RestTimeFromLastMatch+MatchRelevance))
-model.subset22 = ((Hyperthermia ~ Temperature+Humidity+Altitude+RestTimeFromLastMatch+MatchRelevance))
+model.subset2 = ((Y_train$Hyperthermia ~ Temperature+Humidity))
+model.subset21 = ((Y_train$Hyperthermia ~ Temperature+Humidity+RestTimeFromLastMatch+MatchRelevance))
+model.subset22 = ((Y_train$Hyperthermia ~ Temperature+Humidity+Altitude+RestTimeFromLastMatch+MatchRelevance))
 
-linear.model3 = ((AvgSpeed ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model3 = ((Y_train$AvgSpeed ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset3 = ((AvgSpeed ~ Temperature+Humidity+Altitude+RestTimeFromLastMatch+
+model.subset3 = ((Y_train$AvgSpeed ~ Temperature+Humidity+Altitude+RestTimeFromLastMatch+
                     AvgPlayerValue))
-model.subset31 = ((AvgSpeed ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+model.subset31 = ((Y_train$AvgSpeed ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                      AvgPlayerValue+MatchRelevance))
 
-linear.model4 = ((AvgTravelledDistance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model4 = ((Y_train$AvgTravelledDistance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset4 = ((AvgTravelledDistance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+model.subset4 = ((Y_train$AvgTravelledDistance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+AvgGoalConcededLastMatches))
-model.subset41 = ((AvgTravelledDistance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+model.subset41 = ((Y_train$AvgTravelledDistance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                      AvgPlayerValue+AvgGoalConcededLastMatches+SupportersImpact))
 
-linear.model5 = ((PressingCapability ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model5 = ((Y_train$PressingCapability ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset5 = ((PressingCapability ~ Humidity+RestTimeFromLastMatch+
+model.subset5 = ((Y_train$PressingCapability ~ Humidity+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance))
-model.subset51 = ((PressingCapability ~ Humidity+RestTimeFromLastMatch+
+model.subset51 = ((Y_train$PressingCapability ~ Humidity+RestTimeFromLastMatch+
                      AvgPlayerValue+SupportersImpact+MatchRelevance))
 
-linear.model6 = ((PhysicalEndurance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model6 = ((Y_train$PhysicalEndurance ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset6 = ((PhysicalEndurance ~ Humidity+RestTimeFromLastMatch+
+model.subset6 = ((Y_train$PhysicalEndurance ~ Humidity+RestTimeFromLastMatch+
                     AvgPlayerValue+AvgGoalConcededLastMatches))
 
-linear.model7 = ((MentalConcentration ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model7 = ((Y_train$MentalConcentration ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset7 = ((MentalConcentration ~ RestTimeFromLastMatch+
+model.subset7 = ((Y_train$MentalConcentration ~ RestTimeFromLastMatch+
                     AvgPlayerValue+AvgGoalConcededLastMatches+SupportersImpact))
-model.subset71 = ((MentalConcentration ~ ClimaticConditions+RestTimeFromLastMatch+
+model.subset71 = ((Y_train$MentalConcentration ~ ClimaticConditions+RestTimeFromLastMatch+
                      AvgPlayerValue+AvgGoalConcededLastMatches+SupportersImpact+
                      OpposingSupportersImpact))
 
-linear.model8 = ((EmotionalMotivation ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
+linear.model8 = ((Y_train$EmotionalMotivation ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
                     AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                     OpposingSupportersImpact))
-model.subset8 = ((EmotionalMotivation ~ AvgPlayerValue+SupportersImpact))
-model.subset81 = ((EmotionalMotivation ~ AvgPlayerValue+MatchRelevance+SupportersImpact))
-model.subset82 = ((EmotionalMotivation ~ AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
+model.subset8 = ((Y_train$EmotionalMotivation ~ AvgPlayerValue+SupportersImpact))
+model.subset81 = ((Y_train$EmotionalMotivation ~ AvgPlayerValue+MatchRelevance+SupportersImpact))
+model.subset82 = ((Y_train$EmotionalMotivation ~ AvgPlayerValue+MatchRelevance+AvgGoalConcededLastMatches+SupportersImpact+
                      OpposingSupportersImpact))
 
 

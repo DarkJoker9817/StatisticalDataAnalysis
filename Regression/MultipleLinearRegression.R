@@ -18,32 +18,32 @@ fit_7 = lm(Y_train$MentalConcentration ~ ., data=X_train)
 fit_8 = lm(Y_train$EmotionalMotivation ~ ., data=X_train)
 
 
-###Predictors derived from regsubsets
-fit_9 = lm(model.subset1, data=myds)
-fit_10 = lm(model.subset12, data=myds)
-fit_11 = lm(model.subset13, data=myds)
+### Models derived from regsubsets
+fit_9 = lm(model.subset1, data=X_train)
+fit_10 = lm(model.subset12, data=X_train)
+fit_11 = lm(model.subset13, data=X_train)
 
-fit_12 = lm(model.subset2, data=myds)
-fit_13 = lm(model.subset21, data=myds)
-fit_14 = lm(model.subset22, data=myds)
+fit_12 = lm(model.subset2, data=X_train)
+fit_13 = lm(model.subset21, data=X_train)
+fit_14 = lm(model.subset22, data=X_train)
 
-fit_15 = lm(model.subset3, data=myds)
-fit_16 = lm(model.subset31, data=myds)
+fit_15 = lm(model.subset3, data=X_train)
+fit_16 = lm(model.subset31, data=X_train)
 
-fit_17 = lm(model.subset4, data=myds)
-fit_18 = lm(model.subset41, data=myds)
+fit_17 = lm(model.subset4, data=X_train)
+fit_18 = lm(model.subset41, data=X_train)
 
-fit_19 = lm(model.subset5, data=myds)
-fit_20 = lm(model.subset51, data=myds)
+fit_19 = lm(model.subset5, data=X_train)
+fit_20 = lm(model.subset51, data=X_train)
 
-fit_21 = lm(model.subset6, data=myds)
+fit_21 = lm(model.subset6, data=X_train)
 
-fit_22 = lm(model.subset7, data=myds)
-fit_23 = lm(model.subset71, data=myds)
+fit_22 = lm(model.subset7, data=X_train)
+fit_23 = lm(model.subset71, data=X_train)
 
-fit_24 = lm(model.subset8, data=myds)
-fit_25 = lm(model.subset81, data=myds)
-fit_26 = lm(model.subset82, data=myds)
+fit_24 = lm(model.subset8, data=X_train)
+fit_25 = lm(model.subset81, data=X_train)
+fit_26 = lm(model.subset82, data=X_train)
 
 # Simple function to calculate the MSE
 mse_func = function(actual, predicted) {
