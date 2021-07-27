@@ -85,7 +85,7 @@ mse_25_train = mse_func(Y_train$EmotionalMotivation, predict(fit_25, X_train))
 
 mse_tot_train = c(mse_1_train, mse_2_train, mse_3_train, mse_4_train, mse_5_train, mse_6_train, mse_7_train, mse_8_train, 
                   mse_9_train,mse_10_train,mse_11_train,mse_12_train,mse_13_train,mse_14_train,mse_15_train,mse_16_train,mse_17_train,
-                  mse_18_train,mse_19_train,mse_20_train,mse_21_train,mse_22_train,mse_23_train,mse_24_train,mse_25_train,mse_26_train)
+                  mse_18_train,mse_19_train,mse_20_train,mse_21_train,mse_22_train,mse_23_train,mse_24_train,mse_25_train)
 
 mse_1_test = mse_func(Y_test$Dehydration, predict(fit_1, X_test))
 mse_2_test = mse_func(Y_test$Hyperthermia, predict(fit_2, X_test))
@@ -114,12 +114,10 @@ mse_22_test = mse_func(Y_train$MentalConcentration, predict(fit_22, X_test))
 mse_23_test = mse_func(Y_train$MentalConcentration, predict(fit_23, X_test))
 mse_24_test = mse_func(Y_train$EmotionalMotivation, predict(fit_24, X_test))
 mse_25_test = mse_func(Y_train$EmotionalMotivation, predict(fit_25, X_test))
-mse_26_test = mse_func(Y_train$EmotionalMotivation, predict(fit_26, X_test))
 
 mse_tot_test = c(mse_1_test, mse_2_test, mse_3_test, mse_4_test, mse_5_test, mse_6_test, mse_7_test, mse_8_test,
                  mse_9_test,mse_10_test,mse_11_test,mse_12_test,mse_13_test,mse_14_test,mse_15_test,mse_16_test,mse_17_test,
-                 mse_18_test,mse_19_test,mse_20_test,mse_21_test,mse_22_test,mse_23_test,mse_24_test,mse_25_test,mse_26_test)
-                  mse_18_train,mse_19_train,mse_20_train,mse_21_train,mse_22_train,mse_23_train,mse_24_train,mse_25_train)
+                 mse_18_test,mse_19_test,mse_20_test,mse_21_test,mse_22_test,mse_23_test,mse_24_test,mse_25_test)
 
 
 # Test Prediction
@@ -183,7 +181,29 @@ mse_tot_test = c(mse_1_test, mse_2_test, mse_3_test, mse_4_test, mse_5_test, mse
                  mse_18_test,mse_19_test,mse_20_test,mse_21_test,mse_22_test,mse_23_test,mse_24_test,mse_25_test)
 
 
-print(y_pred_1,y_pred_2,y_pred_3,y_pred_4,y_pred_5,y_pred_6,y_pred_7,y_pred_8, y_pred_9, y_pred_10, y_pred_11,
-      y_pred_12, y_pred_13, y_pred_14, y_pred_15,  y_pred_16, y_pred_17, y_pred_18, y_pred_19, y_pred_20,
-      y_pred_21, y_pred_22, y_pred_23, y_pred_24, y_pred_25)
+print(y_pred_1)
+print(y_pred_2)
+print(y_pred_3)
+print(y_pred_4)
+print(y_pred_5)
+print(y_pred_6)
+print(y_pred_7)
+print(y_pred_8)
+print(y_pred_9)
+print(y_pred_10)
+print(y_pred_11)
+print(y_pred_12)
+print(y_pred_13)
+print(y_pred_14)
+print(y_pred_15)
+print(y_pred_16)
+print(y_pred_17)
+print(y_pred_18)
+print(y_pred_19)
+print(y_pred_20)
+print(y_pred_21)
+print(y_pred_22)
+print(y_pred_23)
+print(y_pred_24)
+print(y_pred_25)
 
