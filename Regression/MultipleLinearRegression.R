@@ -58,9 +58,6 @@ mse_5_train = mse_func(Y_train$PressingCapability, predict(fit_5, X_train))
 mse_6_train = mse_func(Y_train$PhysicalEndurance, predict(fit_6, X_train))
 mse_7_train = mse_func(Y_train$MentalConcentration, predict(fit_7, X_train))
 mse_8_train = mse_func(Y_train$EmotionalMotivation, predict(fit_8, X_train))
-
-
-
 # Train MSE for best subset selection models
 mse_9_train = mse_func(Y_train$Dehydration, predict(fit_9, X_train))
 mse_10_train = mse_func(Y_train$Dehydration, predict(fit_10, X_train))
