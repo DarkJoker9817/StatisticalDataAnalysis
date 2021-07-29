@@ -51,7 +51,6 @@ cv.pred_ridge = predict(cv.out_ridge, s=cv.bestlambda_ridge, newx=as.matrix(X_te
 cv.pred_lasso = predict(cv.out_lasso, s=cv.bestlambda_ridge, newx=as.matrix(X_test))
 
 cv.mse_ridge = mse_func(Y_test$Dehydration, cv.pred_ridge)
-cv.mse_ridge2 = mse_func(cv.pred_ridge, Y_test$Dehydration)
 cv.mse_lasso = mse_func(Y_test$Dehydration, cv.pred_lasso)
 ### END CROSS ###
 
