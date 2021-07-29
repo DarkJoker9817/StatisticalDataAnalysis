@@ -18,11 +18,12 @@ myds <- rename(myds, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_
 # Separate the dataset in X (containing predictors) and Y (containing response)
 X = myds[, 1:10]
 Y = myds[, 11:18]
-train = myds[1:30,]
-test = myds[31:40, ]
+# Separate the dataset in train (containing the training samples) and test (containing the testing variables)
+splitpoint=30
+train = myds[1:splitpoint,]
+test = myds[(splitpoint+1):40, ]
 
-# Split the two datasets in train and test
-splitpoint = 30
+# Split the two X and Y datasets in X_train (X_test) and Y_train (Y_test)
 X_train = X[1:splitpoint,]
 X_test = X[(splitpoint+1):40,]
 Y_train = Y[1:splitpoint,]

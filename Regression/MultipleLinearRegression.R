@@ -84,38 +84,6 @@ mse_tot_train = c(mse_1_train, mse_2_train, mse_3_train, mse_4_train, mse_5_trai
                   mse_9_train,mse_10_train,mse_11_train,mse_12_train,mse_13_train,mse_14_train,mse_15_train,mse_16_train,mse_17_train,
                   mse_18_train,mse_19_train,mse_20_train,mse_21_train,mse_22_train,mse_23_train,mse_24_train,mse_25_train)
 
-mse_1_test = mse_func(Y_test$Dehydration, predict(fit_1, X_test))
-mse_2_test = mse_func(Y_test$Hyperthermia, predict(fit_2, X_test))
-mse_3_test = mse_func(Y_test$AvgSpeed, predict(fit_3, X_test))
-mse_4_test = mse_func(Y_test$AvgTravelledDistance, predict(fit_4, X_test))
-mse_5_test = mse_func(Y_test$PressingCapability, predict(fit_5, X_test))
-mse_6_test = mse_func(Y_test$PhysicalEndurance, predict(fit_6, X_test))
-mse_7_test = mse_func(Y_test$MentalConcentration, predict(fit_7, X_test))
-mse_8_test = mse_func(Y_test$EmotionalMotivation, predict(fit_8, X_test))
-
-mse_9_test = mse_func(Y_test$Dehydration, predict(fit_9, X_test))
-mse_10_test = mse_func(Y_train$Dehydration, predict(fit_10, X_test))
-mse_11_test = mse_func(Y_train$Dehydration, predict(fit_11, X_test))
-mse_12_test = mse_func(Y_train$Hyperthermia, predict(fit_12, X_test))
-mse_13_test = mse_func(Y_train$Hyperthermia, predict(fit_13, X_test))
-mse_14_test = mse_func(Y_train$Hyperthermia, predict(fit_14, X_test))
-mse_15_test = mse_func(Y_train$AvgSpeed, predict(fit_15, X_test))
-mse_16_test = mse_func(Y_train$AvgSpeed, predict(fit_16, X_test))
-
-mse_17_test = mse_func(Y_train$AvgTravelledDistance, predict(fit_17, X_test))
-mse_18_test = mse_func(Y_train$AvgTravelledDistance, predict(fit_18, X_test))
-mse_19_test = mse_func(Y_train$PressingCapability, predict(fit_19, X_test))
-mse_20_test = mse_func(Y_train$PressingCapability, predict(fit_20, X_test))
-mse_21_test = mse_func(Y_train$PhysicalEndurance, predict(fit_21, X_test))
-mse_22_test = mse_func(Y_train$MentalConcentration, predict(fit_22, X_test))
-mse_23_test = mse_func(Y_train$MentalConcentration, predict(fit_23, X_test))
-mse_24_test = mse_func(Y_train$EmotionalMotivation, predict(fit_24, X_test))
-mse_25_test = mse_func(Y_train$EmotionalMotivation, predict(fit_25, X_test))
-
-mse_tot_test = c(mse_1_test, mse_2_test, mse_3_test, mse_4_test, mse_5_test, mse_6_test, mse_7_test, mse_8_test,
-                 mse_9_test,mse_10_test,mse_11_test,mse_12_test,mse_13_test,mse_14_test,mse_15_test,mse_16_test,mse_17_test,
-                 mse_18_test,mse_19_test,mse_20_test,mse_21_test,mse_22_test,mse_23_test,mse_24_test,mse_25_test)
-
 
 # Test Prediction
 y_pred_1 = predict(fit_1, X_test)
@@ -172,6 +140,7 @@ mse_22_test = mse_func(Y_test$MentalConcentration, y_pred_22)
 mse_23_test = mse_func(Y_test$EmotionalMotivation, y_pred_23)
 mse_24_test = mse_func(Y_test$EmotionalMotivation, y_pred_24)
 mse_25_test = mse_func(Y_test$EmotionalMotivation, y_pred_25)
+
 
 mse_tot_test = c(mse_1_test, mse_2_test, mse_3_test, mse_4_test, mse_5_test, mse_6_test, mse_7_test, mse_8_test,
                  mse_9_test,mse_10_test,mse_11_test,mse_12_test,mse_13_test,mse_14_test,mse_15_test,mse_16_test,mse_17_test,
