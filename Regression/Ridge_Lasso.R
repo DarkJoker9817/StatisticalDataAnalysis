@@ -20,7 +20,7 @@ u=c()
 temp1=c()
 for(i in 1:length(lambda_grid)){
   temp1 = predict(ridge_model_grid, s=lambda_grid[i], newx=as.matrix(X_test))
-  u[i] = c(mse_func(temp1, Y_test$Dehydration))
+  u[i] = c(mse_func(Y_test$Dehydration, temp1))
 }
 ### Lasso fit and prediction for multiple lambda (lambda_grid)
 lasso_model_grid = glmnet(X_train, Y_train$Dehydration, alpha=1, lambda=lambda_grid)
@@ -28,7 +28,7 @@ v=c()
 temp2=c()
 for(i in 1:length(lambda_grid)){
   temp2 = predict(lasso_model_grid, s=lambda_grid[i], newx=as.matrix(X_test))
-  v[i] = c(mse_func(temp2, Y_test$Dehydration))
+  v[i] = c(mse_func(Y_test$Dehydration, temp2))
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
@@ -50,8 +50,9 @@ cv.bestlambda_lasso=cv.out_lasso$lambda.min
 cv.pred_ridge = predict(cv.out_ridge, s=cv.bestlambda_ridge, newx=as.matrix(X_test))
 cv.pred_lasso = predict(cv.out_lasso, s=cv.bestlambda_ridge, newx=as.matrix(X_test))
 
-cv.mse_ridge = mse_func(cv.pred_ridge, Y_test$Dehydration)
-cv.mse_lasso = mse_func(cv.pred_lasso, Y_test$Dehydration)
+cv.mse_ridge = mse_func(Y_test$Dehydration, cv.pred_ridge)
+cv.mse_ridge2 = mse_func(cv.pred_ridge, Y_test$Dehydration)
+cv.mse_lasso = mse_func(Y_test$Dehydration, cv.pred_lasso)
 ### END CROSS ###
 
 ###-------------------------- Y = Hyperthermia --------------------------###

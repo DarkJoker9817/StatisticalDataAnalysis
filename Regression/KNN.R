@@ -1,5 +1,5 @@
 library(caret)
-
+library(Rfast)
 ####--------------------------------- KNN ---------------------------------####
 
 # MSE function
@@ -26,7 +26,6 @@ best_model = knnreg(X_train, Y_train$Dehydration, k=best_k)
 y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
-
 
 ###------------------------- Y = Hyperthermia -------------------------###
 
