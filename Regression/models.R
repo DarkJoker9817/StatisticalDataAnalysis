@@ -8,6 +8,8 @@ model.subset1_1 = ((Dehydration ~ Temperature+Humidity)) #BIC
 model.subset1_2 = ((Dehydration ~ Temperature+Humidity+AvgPlayerValue)) #Cp
 model.subset1_3 = ((Dehydration ~ Temperature+Humidity+AvgPlayerValue+Altitude)) #AdjR2
 
+
+
 ###------------------- Y = Hyperthermia -------------------###
 # Linear model with all predictors
 linear.model2 = ((Hyperthermia ~ Temperature+Humidity+Altitude+ClimaticConditions+RestTimeFromLastMatch+
