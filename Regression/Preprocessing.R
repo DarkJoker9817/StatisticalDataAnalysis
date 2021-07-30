@@ -1,10 +1,6 @@
 setwd('C:/Users/vdevi/MyDesktop/unisa/magistrale/Primo anno/secondo semestre/statistical e data analysis/progetto/StatisticalDataAnalysis')
 myds = read.csv('C:/Users/vdevi/MyDesktop/unisa/magistrale/Primo anno/secondo semestre/statistical e data analysis/progetto/StatisticalDataAnalysis/Datasets/RegressionData_SDA_AH_group3.csv')
 
-library("caret")
-preproc <- preProcess(myds, method=c("range"))
-myds <- predict(preproc,myds)
-
 library(dplyr)
 myds <- rename(myds, Temperature=X_Temperature, Humidity=X_Humidity, Altitude=X_Altitude,
                ClimaticConditions=X_ClimaticConditions, RestTimeFromLastMatch=X_RestTimeFromLastMatch,

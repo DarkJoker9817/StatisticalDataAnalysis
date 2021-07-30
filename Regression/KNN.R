@@ -45,8 +45,6 @@ y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
 
-
-
 ###------------------------- Y = AvgSpeed -------------------------###
 
 ### For Loop -> best K value (min MSE)
@@ -65,8 +63,6 @@ best_model = knnreg(X_train, Y_train$AvgSpeed, k=best_k)
 y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
-
-
 
 ###------------------------- Y = AvgTravelledDistance -------------------------###
 
@@ -87,8 +83,6 @@ y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
 
-
-
 ###------------------------- Y = PressingCapability -------------------------###
 
 ### For Loop -> best K value (min MSE)
@@ -107,8 +101,6 @@ best_model = knnreg(X_train, Y_train$PressingCapability, k=best_k)
 y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
-
-
 
 ###------------------------- Y = PhysicalEndurance -------------------------###
 
@@ -129,8 +121,6 @@ y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
 
-
-
 ###------------------------- Y = MentalConcentration -------------------------###
 
 ### For Loop -> best K value (min MSE)
@@ -149,7 +139,6 @@ best_model = knnreg(X_train, Y_train$MentalConcentration, k=best_k)
 y_pred = predict(best_model, X_test)
 lines(x, y_pred, col='blue') # KNN
 legend('topright', legend=c('Original', 'KNN'), col=c('red', 'blue'), pch=20)
-
 
 ###------------------------- Y = EmotionalMotivation -------------------------###
 
