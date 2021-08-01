@@ -32,9 +32,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -74,9 +76,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -116,9 +120,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -158,9 +164,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -201,9 +209,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -244,9 +254,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -287,9 +299,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
@@ -330,9 +344,11 @@ for(i in 1:length(lambda_grid)){
 }
 
 # Compare RMSE Ridge vs. Lasso vectors
-plot(u, col='red', ylab='RMSE test', main='Ridge vs. Lasso', type='b')
+plot(u, col='red', ylab='MSE test', main='Ridge vs. Lasso', type='b')
 points(v, col='blue', type='b')
-legend('topright', legend=c('Ridge', 'Lasso'), col=c('red', 'blue'), pch=20)
+points(which.min(u), min(u), col='red', pch=20)
+points(which.min(v), min(v), col='blue', pch=20)
+legend('topright', legend=c('Ridge', 'Lasso', 'Min Ridge', 'Min Lasso'), col=c('red', 'blue', 'red', 'blue'), pch=c(1, 1, 20, 20))
 
 # Value of lambda to minimize RMSE
 lambda_min_ridge = lambda_grid[which.min(u)]
